@@ -1,0 +1,42 @@
+/* Add this CSS to your component's style file (e.g., styles.css or styles.scss) */
+
+/* Dialog Title */
+h2.mat-dialog-title {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Dialog Content */
+  mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dialog-input {
+    margin-bottom: 15px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  /* Dialog Actions */
+  mat-dialog-actions {
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  button.mat-button {
+    margin-left: 10px;
+  }
+  
+  button[color="primary"] {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  button[color="warn"] {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  

@@ -1,0 +1,75 @@
+<div class="example-button-row">
+    <div fxLayout="row" fxLayoutAlign="end center">
+        <button mat-raised-button (click)="openDialog()" color="primary" class="purple-icon"> create new </button>
+    </div>
+</div>
+
+
+<div class="mat-elevation-z8">
+
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource">
+
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> type </th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="titre">
+            <th mat-header-cell *matHeaderCellDef> titre </th>
+            <td mat-cell *matCellDef="let element"> {{element.titre}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="lieu">
+            <th mat-header-cell *matHeaderCellDef> lieu </th>
+            <td mat-cell *matCellDef="let element"> {{element.lieu}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="SourcePdf">
+            <th mat-header-cell *matHeaderCellDef> SourcePdf </th>
+            <td mat-cell *matCellDef="let element">
+                <a href = {{element.SourcePdf}}> <mat-icon> picture_as_pdf </mat-icon> </a>
+                </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <button routerLink="/edit/{{element.id}}">
+                    <mat-icon class="green-icon"> edit</mat-icon></button>
+                <button (click)="onDelete(element.id)"> <mat-icon class="red-icon"> delete </mat-icon></button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" aria-label="Select page of periodic elements">
+    </mat-paginator>
+
+</div>

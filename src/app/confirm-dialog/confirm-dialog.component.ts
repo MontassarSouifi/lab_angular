@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from 'src/Models/Member';
 import { MemberService } from 'src/Services/member.service';
-import { GLOBAL } from '../app_config';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
